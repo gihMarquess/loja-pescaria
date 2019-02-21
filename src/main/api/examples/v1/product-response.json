@@ -1,0 +1,10 @@
+{
+  "product": {
+       "code":1,
+       "name":"Carretilha Marine Sports Caster",
+       "category": "Carretilhas",
+       "description": "Carretilha Marine Sports Caster 400 3 Rol. Direita",
+       "unitiy": "unity",
+       "unitaryPrice": 20.00 
+    }
+}

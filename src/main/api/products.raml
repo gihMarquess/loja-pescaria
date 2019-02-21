@@ -1,0 +1,55 @@
+#%RAML 1.0
+
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/281ceebd-b63d-4fac-b833-fb2f0c681dac/ # 
+title: Products API
+
+
+version: 1.0.0
+protocols: [ HTTPS ]
+mediaType: application/json
+
+documentation:
+  - title: Products API
+    content: |
+              This API is responsible to manage the products stock of a fishing supplies store
+
+uses:
+  types: libraries/v1/types.raml
+  resourceTypes: libraries/v1/resourceTypes.raml
+  traits: libraries/v1/traits.raml
+
+/status:
+  description: |
+    The default API test resource. Normally used to create a health check of the API.
+  get:
+    description: |
+      Check if the api resource is available.
+      This will return http status 200 if is all ok.
+    responses:
+      200:
+        body:
+          application/json:
+
+/products:
+  is: [traits.client-id-required]
+  description: This resource is responsible to create, update and research all the products in the fishing supplies stores' database
+  type:
+    resourceTypes.collectionItem:
+      typeItem: types.Products
+      exampleItemResponse: !include examples/v1/products-response.json
+      exampleItemRequest: !include examples/v1/products-request.json
+  get:
+  post:
+
+  /{id}:
+    is: [traits.client-id-required]
+    description: This resource is responsible to create, update and research all the products in the fishing supplies stores' database
+    type:
+      resourceTypes.collectionItem:
+        typeItem: types.Product
+        exampleItemResponse: !include examples/v1/product-response.json
+        exampleItemRequest: !include examples/v1/product-request.json
+    get:
+    put:
+    delete:
+    

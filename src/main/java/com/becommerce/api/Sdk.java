@@ -17,7 +17,7 @@ public class Sdk {
         return config;
     }
 
-//    public ProductsService products() {
-//        return new ProductsServiceImplementation(config);
-//    }
+    public ProductsService products() {
+        return new ProductsServiceImplementation(config, null);
+    }
 }

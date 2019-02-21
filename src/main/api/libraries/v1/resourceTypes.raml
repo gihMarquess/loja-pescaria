@@ -1,0 +1,80 @@
+#%RAML 1.0 Library
+usage: API RAML resource types
+uses:
+  types: types.raml
+
+resourceTypes:
+  collection:
+    description: Collection of <<resourcePathName>>.
+    get?:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<typeCollection>>
+              example: <<exampleCollection>>
+        400: &400-error
+          body:
+            application/json:
+              type: types.ErrorMessageDefinition
+              example: !include ../../examples/v1/error-400.json
+        500: &500-error
+          body:
+            application/json:
+              type: types.ErrorMessageDefinition
+              example: !include ../../examples/v1/error-500.json
+    post?:
+      description: Create a new <<resourcePathName|!singularize>> record.
+      body: &body-request-item
+        application/json:
+          type: <<typeItem>>
+          example: <<exampleItemRequest>>
+      responses:
+        201:
+        200: &body-response-item
+          body:
+            application/json:
+              type: <<typeItem>>
+              example: <<exampleItemResponse>>
+        400: *400-error
+        500: *500-error
+       
+    options: &optionsWithCors
+      description: Route for CORS preflight
+      responses:
+        200:
+          headers: &headerCors
+            Access-Control-Allow-Origin:
+              required: false
+              example: '*'
+            Access-Control-Allow-Method:
+              required: false
+              example: 'GET, POST, DELETE, PUT'
+  collectionItem:
+    description: A single <<resourcePathName|!singularize>> record.
+    get?:
+      description: Get the details from the <<resourcePathName|!singularize>> record.
+      responses:
+        200: *body-response-item
+        400: *400-error
+        404: &404-error
+          body:
+            application/json:
+              type: types.ErrorMessageDefinition
+              example: !include ../../examples/v1/error-404.json
+        500: *500-error
+    delete?:
+      description: Inactivate the <<resourcePathName|!singularize>> record.
+      responses:
+        204:
+        400: *400-error
+        500: *500-error
+    put?:
+      description: Updates the <<resourcePathName|!singularize>> record.
+      body: *body-request-item
+      responses:
+        200: *body-response-item
+        400: *400-error
+        500: *500-error
+    options: *optionsWithCors

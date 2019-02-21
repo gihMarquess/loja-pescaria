@@ -1,0 +1,69 @@
+#%RAML 1.0 Library
+usage: API types definitions
+
+types:
+
+  StackErrorDefinition:
+    type: object
+    properties:
+      code: string
+      message: string
+
+  ErrorMessageDefinition:
+    type: object
+    properties:
+      message: string
+      processor?: string
+      errors?: StackErrorDefinition[]
+
+  ProductDefinition:
+    type: object
+    properties:
+      code:
+        type: number  
+        description: A product code identification
+        example: 1
+        required: false
+      name:
+        type: string
+        description: A product name 
+        example: "Carretilha Marine Sports Caster"
+        required: true
+      description:
+        type: string
+        description: A product description
+        example: "Carretilha Marine Sports Caster 400 3 Rol. Direita"
+        required: false
+      category:
+        type: string
+        description: A category which the product belongs to 
+        example: "Carretilhas"
+        required: false
+      unity:
+        type: string
+        description: A product measure. Can be Box, unity, part, etc
+        default: "unity"
+        example: "unity"
+        required: false
+      unitaryPrice:
+        type: number
+        description: A product unitary price
+        example: 20.00
+        required: true
+      totalPrice:
+        type: number
+        description: A total price of a product based on its quantity and unitaryPrice
+        required: false
+
+          
+  Products:
+    type: object
+    properties:
+      products: ProductDefinition []
+
+  Product:
+    type: object
+    properties:
+      product: ProductDefinition    
+
+  

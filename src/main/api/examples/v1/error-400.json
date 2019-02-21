@@ -1,0 +1,9 @@
+{
+  "message": "Bad Request",
+  "processor": "API Kit Validation",
+  "errors": [{
+      "code": "ERR-Name",
+      "message": "Name cannot be blanck"
+		}
+	]
+}

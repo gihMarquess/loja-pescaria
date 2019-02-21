@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+       "code":1,
+       "name":"Carretilha Marine Sports Caster",
+       "category": "Carretilhas",
+       "description": "Carretilha Marine Sports Caster 400 3 Rol. Direita",
+       "unitiy": "unity",
+       "unitaryPrice": 20.00 
+    },
+    {
+       "code":2,
+       "name":"Anzol Albatroz Cristal",
+       "description": "Anzol Albatroz Cristal 9408 WR Niq. 02 C/ 18 Un.",
+       "category": "Anzol",
+       "unitiy": "box",
+       "unitaryPrice": 1.35 
+    },
+    {
+       "code":3,
+       "name":"Isca Artificial Maruri Charutinho",
+       "description": "Isca Artificial Maruri Charutinho 70 Cor: 17",
+       "category": "Isca",
+       "unitiy": "unity",
+       "unitaryPrice": 14.89 
+    }
+  ]
+}
