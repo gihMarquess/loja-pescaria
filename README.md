@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gihMarquess/loja-pescaria.svg?branch=master)](https://travis-ci.org/gihMarquess/loja-pescaria)
+
 Products API  version 1.0.0
 ==================
 
